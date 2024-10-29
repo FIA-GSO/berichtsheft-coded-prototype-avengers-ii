@@ -1,1 +1,0 @@
-:root{--grid-size: 100vw;--grid-column-gap: 16px;--grid-row-gap: 56px}@media (min-width: 1280px){:root{--grid-column-gap: 42px;--grid-size: 1280px}}.grid{display:grid;gap:0;grid-template-columns:calc((100% - var(--grid-size)) / 2) repeat(12,minmax(8px,calc(var(--grid-size) / 12))) calc((100% - var(--grid-size)) / 2)}*{box-sizing:border-box;padding:0;margin:0}
