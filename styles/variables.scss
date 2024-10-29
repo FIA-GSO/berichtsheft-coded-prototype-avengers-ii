@@ -4,3 +4,57 @@ $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1280px;
 $content-max-width: 800px;
 $container-max-size: 1280px;
+
+/** Content */
+$content-max-width: 800px;
+$container-max-width: $breakpoint-desktop;
+$document-max-width: 2560px;
+
+/** Colors */
+$color-black: #202020;
+$color-blue-dark: #001d3f;
+$color-blue: #002f5d;
+$color-white: #fff;
+$color-red: #e80606;
+$color-green: #7db30c;
+
+/** Main Colors */
+$color-primary: $color-blue;
+$color-seondary: $color-blue-dark;
+
+$color-text: $color-black;
+$color-headline: $color-blue;
+$color-background: $color-white;
+$color-link: $color-blue;
+
+/** divers */
+$borde-radius: 4px;
+$borde-radius-image: 16px;
+$font-global-size: 16px;
+$font-global-line-height: 1.5;
+$font-family: Arial, Helvetica, sans-serif;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+$heading-selectors: "h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, %headlineh1, %headlineh2, %headlineh3, %headlineh4, %headlineh5, %headlineh6";
+
+:root {
+  /** Grid */
+  --grid-size: 100vw;
+  --grid-column-gap: 16px;
+  --grid-row-gap: 40px;
+  --component-spacing-y: 40px;
+
+  @media (min-width: $breakpoint-tablet) {
+    --grid-column-gap: 24px;
+    --component-spacing-y: 48px;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    --grid-size: #{$container-max-size};
+    --grid-column-gap: 32px;
+    --grid-gap-row: 48px;
+    --component-spacing-y: 80px;
+  }
+}

@@ -1,0 +1,16 @@
+main {
+  max-width: var($document-max-width);
+  margin: 0 auto;
+}
+
+.component {
+  padding-top: var(--component-spacing-y);
+  padding-bottom: var(--component-spacing-y);
+
+  &--grid {
+    > * {
+      position: relative;
+      z-index: 0;
+    }
+  }
+}

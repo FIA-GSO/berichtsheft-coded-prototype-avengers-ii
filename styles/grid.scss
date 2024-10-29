@@ -1,15 +1,3 @@
-:root {
-  /** Grid */
-  --grid-size: 100vw;
-  --grid-column-gap: 16px;
-  --grid-row-gap: 56px;
-
-  @media (min-width: $breakpoint-desktop) {
-    --grid-column-gap: 42px;
-    --grid-size: #{$container-max-size};
-  }
-}
-
 /// Returns the span size of x columns
 /// @param {number} $columns [1] Columns (if `0` will return the remaining space between the grid and the page
 /// @param {boolean} $overshoot [false] If true calculation will also include the last column gap
