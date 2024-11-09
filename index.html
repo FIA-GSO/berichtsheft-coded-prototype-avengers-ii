@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- TODO: description anpassen -->
     <meta
       name="description"
-      content="Quo hic quidem amet enim eius ratione quia impedit maxime et vel odit rerum placeat. Exercitationem voluptates quis distinctio molestias et error itaque dolor eum harum fuga aut assumenda sit."
+      content="Melden Sie sich an, um Zugang zu Ihrem IHK-Konto zu erhalten und Ihre Ausbildungen, Prüfungen und Zertifikate zu verwalten."
+    />
+    <meta
+      name="keywords"
+      content="IHK Köln, Ausbildung, Ausbildungsnachweis, Berichtsheft"
     />
     <link
       rel="icon"
@@ -23,13 +26,115 @@
     />
     <meta name="apple-mobile-web-app-title" content="IHK Ausbildungsnachweis" />
     <link rel="manifest" href="/berichtsheft-coded-prototype-avengers-ii/assets/site-D4Pwd2MB.webmanifest" />
-    <title>IHK Ausbildungsnachweis</title>
-    <script type="module" crossorigin src="/berichtsheft-coded-prototype-avengers-ii/assets/index-CYL3ara0.js"></script>
-    <link rel="stylesheet" crossorigin href="/berichtsheft-coded-prototype-avengers-ii/assets/index-DPf9mE7l.css">
+    <title>IHK Köln - Anmelden</title>
+    <script type="module" crossorigin src="/berichtsheft-coded-prototype-avengers-ii/assets/index-DtGrBoMj.js"></script>
+    <link rel="stylesheet" crossorigin href="/berichtsheft-coded-prototype-avengers-ii/assets/index-pjfRxaPa.css">
   </head>
   <body>
-    <header class="document-header"></header>
-    <main class="document"></main>
+    <header class="document-header">
+      <div class="container">
+        <a
+          href="index.html"
+          class="logo-link"
+          aria-label="Anmeldeseite"
+          title="Anmeldeseite"
+        >
+          <img
+            src="/berichtsheft-coded-prototype-avengers-ii/assets/ihk-logo-OJAxSQJs.png"
+            class="logo-images"
+            alt="Logo: IHK"
+          />
+        </a>
+        <div class="header-navigation">
+          <nav aria-label="Hauptnavigation">
+            <ul class="header-navigation-bar">
+              <li class="menu-item">
+                <a
+                  href="kontakt.html"
+                  class="button button--primary"
+                  title="Konakt"
+                  >Kontakt</a
+                >
+              </li>
+              <li class="menu-item">
+                <button class="search" aria-label="Suche">
+                  <span class="search-icon" aria-hidden="true">
+                    <svg
+                      width="30"
+                      height="31"
+                      viewBox="0 0 30 31"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M20.2537 22.0784C19.322 22.8771 18.2537 23.5485 17.0643 24.0541C10.8306 26.704 3.62743 23.7973 0.977262 17.5631C-1.67269 11.3293 1.23402 4.1262 7.46834 1.47601C13.7031 -1.1738 20.9051 1.7326 23.5553 7.96705C25.44 12.4006 24.514 17.3246 21.5791 20.7521L29.7255 28.8997C30.0916 29.2658 30.0916 29.8594 29.7254 30.2255C29.3593 30.5916 28.7657 30.5916 28.3996 30.2254L20.2537 22.0784ZM19.5608 20.1693C18.6559 21.0613 17.5711 21.8013 16.3308 22.3285C11.0501 24.5733 4.94791 22.1109 2.70282 16.8295C0.458025 11.5489 2.92047 5.44668 8.20181 3.20159C13.4835 0.956864 19.5846 3.41901 21.8298 8.70058C23.526 12.6908 22.5345 17.1502 19.67 20.06C19.6506 20.0764 19.6317 20.0938 19.6134 20.1121C19.5949 20.1306 19.5774 20.1497 19.5608 20.1693Z"
+                        fill="#001D3F"
+                      />
+                    </svg>
+                  </span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <main class="document">
+      <div class="container login">
+        <div class="content">
+          <h1>IHK Online Portal</h1>
+          <h2>Anmelden</h2>
+        </div>
+        <div class="form-container">
+          <form action="login.php" method="post">
+            <label for="role">
+              Rolle
+              <select name="role" id="role">
+                <option value="auszubildende">Auszubildende</option>
+                <option value="ausbilder">Ausbilder</option>
+                <option value="lehrer">Lehrer</option>
+                <option value="ihk">IHK</option>
+              </select>
+            </label>
+            <label for="username">
+              Benutzername/Email
+              <input
+                type="text"
+                name="username"
+                id="username"
+                required
+                placeholder="max-mustermann/max@mustermann.de"
+                aria-description="Bitte geben Sie Ihren Benutzernamen oder Ihre E-Mail-Adresse ein."
+              />
+            </label>
+            <label for="password">
+              Password
+              <input
+                type="password"
+                name="password"
+                id="password"
+                aria-description="Bitte geben Sie Ihr Passwort ein."
+                required
+              />
+            </label>
+            <input type="submit" value="Anmelden" />
+          </form>
+          <div class="links">
+            <a href="forget-password.html" title="Passwort vergessen"
+              >Passwort vergessen</a
+            >
+            <a href="sign-up.html" title="Registrieren">Registrieren</a>
+          </div>
+          <div class="gdpr">
+            <a href="data-protection.html" title="Datenschutzerklärung">
+              Datenschutzerklärung
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
     <footer class="document-footer"></footer>
   </body>
 </html>
