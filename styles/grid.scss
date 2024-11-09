@@ -6,10 +6,10 @@
   @if $columns < 1 {
     @if $overshoot == true {
       @return calc(
-        (var(--page-size) - var(--grid-size)) / 2 + var(--grid-column-gap)
+        ($document-max-width - var(--grid-size)) / 2 + var(--grid-column-gap)
       );
     } @else {
-      @return calc((var(--page-size) - var(--grid-size)) / 2);
+      @return calc(($document-max-width - var(--grid-size)) / 2);
     }
   } @else {
     @if $overshoot == true {
@@ -36,7 +36,7 @@
 
 @mixin grid($columns: 12) {
   display: grid;
-  gap: 0;
+  gap: var(--grid-row-gap) var(--grid-column-gap);
   grid-template-columns:
     calc((100% - var(--grid-size)) / 2) repeat(
       #{$columns},

@@ -12,6 +12,7 @@ $document-max-width: 2560px;
 
 /** Colors */
 $color-black: #202020;
+$color-grey: #8796a8;
 $color-blue-dark: #001d3f;
 $color-blue: #002f5d;
 $color-white: #fff;
@@ -21,23 +22,26 @@ $color-green: #7db30c;
 /** Main Colors */
 $color-primary: $color-blue;
 $color-seondary: $color-blue-dark;
-
 $color-text: $color-black;
 $color-headline: $color-blue;
 $color-background: $color-white;
 $color-link: $color-blue;
+$border-color: $color-grey;
 
 /** divers */
 $borde-radius: 4px;
 $borde-radius-image: 16px;
 $font-global-size: 16px;
-$font-global-line-height: 1.5;
+$font-global-line-height: 1.2;
 $font-family: Arial, Helvetica, sans-serif;
 $font-weight-normal: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 
 $heading-selectors: "h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, %headlineh1, %headlineh2, %headlineh3, %headlineh4, %headlineh5, %headlineh6";
+$input-selectors: 'input[type="tel"], input[type="url"], input[type="text"], input[type="date"], input[type="email"], input[type="search"], input[type="number"], input[type="password"], textarea, select';
+
+$box-shadow: 0 0 8px 0 rgba($color-black, 0.1);
 
 :root {
   /** Grid */

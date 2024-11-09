@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IHK Angemeldet</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #0d1b2a;
+        height: 100vh;
+      }
+
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        background-color: #1b263b;
+        border-bottom: 1px solid #415a77;
+        position: relative;
+        color: white;
+      }
+
+      header h1 {
+        margin: 0;
+        font-weight: 600;
+        font-size: 56px;
+      }
+
+      .profile-button {
+        width: 40px;
+        height: 40px;
+        background-color: #415a77;
+        border-radius: 50%;
+        position: absolute;
+        right: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+
+      .profile-button:hover {
+        background-color: #0d1b2a;
+      }
+
+      .logout-link {
+        position: absolute;
+        right: 60px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .logout-link:hover {
+        text-decoration: underline;
+      }
+
+      .dropdown-menu {
+        display: none;
+        position: absolute;
+        right: 10px;
+        top: 60px;
+        background-color: #1b263b;
+        border: 1px solid #415a77;
+        border-radius: 4px;
+        min-width: 160px;
+        z-index: 1;
+      }
+
+      .dropdown-menu a {
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+        display: block;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .dropdown-menu a:hover {
+        background-color: #415a77;
+      }
+
+      .container {
+        display: flex;
+        height: calc(100vh - 50px);
+      }
+
+      .left,
+      .right {
+        flex: 1;
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      .left {
+        display: flex;
+        flex-direction: column;
+        background-color: #1e3c58;
+        border-right: 1px solid #415a77;
+      }
+
+      .right {
+        border-left: 1px solid #415a77;
+        background-color: #1e3c58;
+      }
+
+      .date-navigation {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      button {
+        background-color: #415a77;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      button:hover {
+        background-color: #0d1b2a;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        height: 100%;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid #415a77;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        background-color: #e0e1dd;
+        color: #0d1b2a;
+      }
+
+      th {
+        background-color: #415a77;
+        color: white;
+        font-weight: 600;
+      }
+
+      th:nth-child(2),
+      td:nth-child(2) {
+        width: 50%;
+      }
+
+      th:nth-child(3),
+      td:nth-child(3),
+      th:nth-child(4),
+      td:nth-child(4) {
+        width: 15%;
+      }
+
+      .text-area-container {
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 40px);
+      }
+
+      .dropdown-container {
+        margin-bottom: 10px;
+      }
+
+      select {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #415a77;
+        background-color: #1e3c58;
+        color: white;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      textarea {
+        width: 100%;
+        height: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #415a77;
+        background-color: #e0e1dd;
+        color: #0d1b2a;
+        font-family: "Open Sans", sans-serif;
+        flex-grow: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>IHK angemeldet</h1>
+      <a href="/logout" class="logout-link">abmelden</a>
+      <button class="profile-button" onclick="toggleDropdown()">
+        &#128100;
+      </button>
+      <div id="dropdown" class="dropdown-menu">
+        <a href="#">Dummyoption</a>
+        <a href="#">Einstellungen</a>
+        <a href="/logout">Abmelden</a>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="left">
+        <div class="date-navigation">
+          <button>&lt;</button>
+          <input
+            type="text"
+            id="dateInput"
+            style="
+              border: 1px solid #415a77;
+              padding: 5px;
+              background-color: #415a77;
+              color: white;
+              font-family: &quot;Open Sans&quot;, sans-serif;
+            "
+            placeholder="Wähle ein Datum"
+            onclick="this.type='date'"
+            onchange="showWeek()"
+          />
+          <button>&gt;</button>
+        </div>
+        <div style="flex-grow: 1">
+          <table>
+            <thead>
+              <tr>
+                <th>Tag</th>
+                <th>Inhalt</th>
+                <th>Stunden aufgeteilt</th>
+                <th>Stunden insgesamt</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Montag</td>
+                <td>Dummy-Inhalt</td>
+                <td></td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>Dienstag</td>
+                <td>Dummy-Inhalt</td>
+                <td></td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>Mittwoch</td>
+                <td>Dummy-Inhalt</td>
+                <td></td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>Donnerstag</td>
+                <td>Dummy-Inhalt</td>
+                <td></td>
+                <td>8</td>
+              </tr>
+              <tr>
+                <td>Freitag</td>
+                <td>Dummy-Inhalt</td>
+                <td></td>
+                <td>8</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="dropdown-container">
+          <select
+            style="
+              border: 1px solid #415a77;
+              padding: 5px;
+              background-color: #415a77;
+              color: white;
+              font-family: &quot;Open Sans&quot;, sans-serif;
+            "
+          >
+            <option value="option1">Lernfeld 1</option>
+            <option value="option2">Lernfeld 2</option>
+            <option value="option3">Lernfeld 3</option>
+          </select>
+        </div>
+        <div class="text-area-container">
+          <textarea placeholder="Inhalt des Lernfeldes..."></textarea>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showWeek() {
+        const dateInput = document.getElementById("dateInput").value;
+        const date = new Date(dateInput);
+
+        // Find Monday (start of the week)
+        const monday = new Date(date);
+        monday.setDate(date.getDate() - ((date.getDay() + 6) % 7));
+
+        // Find Friday (end of the week)
+        const friday = new Date(monday);
+        friday.setDate(monday.getDate() + 4);
+
+        // Format the dates as DD.MM.YYYY
+        const mondayString = formatDate(monday);
+        const fridayString = formatDate(friday);
+
+        // Display the date range
+        document.getElementById("dateInput").type = "text"; // Switch back to text
+        document.getElementById("dateInput").value =
+          `${mondayString} - ${fridayString}`;
+      }
+
+      function formatDate(date) {
+        let day = date.getDate().toString().padStart(2, "0");
+        let month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
+        let year = date.getFullYear();
+        return `${day}.${month}.${year}`;
+      }
+
+      function toggleDropdown() {
+        var dropdown = document.getElementById("dropdown");
+        if (dropdown.style.display === "block") {
+          dropdown.style.display = "none";
+        } else {
+          dropdown.style.display = "block";
+        }
+      }
+
+      // Close the dropdown if clicked outside of it
+      window.onclick = function (event) {
+        if (!event.target.matches(".profile-button")) {
+          var dropdown = document.getElementById("dropdown");
+          if (dropdown.style.display === "block") {
+            dropdown.style.display = "none";
+          }
+        }
+      };
+    </script>
+  </body>
+</html>

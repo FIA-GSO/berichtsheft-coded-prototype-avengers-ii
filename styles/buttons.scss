@@ -1,0 +1,48 @@
+@mixin button() {
+  padding: 16px 24px;
+  appearance: none;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color-blue-dark;
+  border-radius: $borde-radius;
+  text-decoration: none;
+  font-weight: $font-weight-bold;
+  text-align: center;
+  font-size: $font-global-size;
+  font-family: $font-family;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+  min-width: 46px;
+  min-height: 46px;
+}
+
+@mixin button-primay() {
+  background-color: $color-blue-dark;
+  color: $color-white;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $color-blue;
+    border-color: $color-blue;
+  }
+
+  &:active {
+    background-color: $color-blue-dark;
+    border-color: $color-blue-dark;
+  }
+}
+
+.button,
+button {
+  @include button();
+
+  &--primary {
+    @include button-primay();
+  }
+}
