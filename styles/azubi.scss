@@ -1,0 +1,150 @@
+.azubi {
+  @include grid();
+  padding-top: 50px;
+  padding-bottom: 50px;
+  position: relative;
+
+  @media (min-width: $breakpoint-desktop) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .profile {
+    @include grid-item(1, 12);
+
+    @media (min-width: $breakpoint-desktop) {
+      @include grid-item(1, 4);
+    }
+
+    &-pic {
+      img {
+        max-width: 250px;
+        margin: 0 auto;
+        margin-bottom: 16px;
+      }
+    }
+
+    &-name {
+      text-align: center;
+      margin: 0;
+    }
+
+    &-informations {
+      display: flex;
+      flex-direction: column;
+      margin-top: 40px;
+      gap: 16px;
+
+      > * {
+        margin: 0;
+      }
+    }
+  }
+
+  .app {
+    @include grid-item(1, 12);
+
+    @media (min-width: $breakpoint-desktop) {
+      @include grid-item(5, 12);
+
+      &::before {
+        content: "";
+        width: 2px;
+        height: 100%;
+        position: absolute;
+        background-color: $border-color;
+        top: 0;
+      }
+    }
+
+    .breadcrumb-navigation,
+    .entries,
+    .buttons {
+      @media (min-width: $breakpoint-desktop) {
+        padding-left: 24px;
+      }
+    }
+
+    .breadcrumb-navigation {
+      display: flex;
+
+      ol {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;
+        padding: 0;
+
+        li {
+          position: relative;
+          display: inline-flex;
+          align-items: center;
+
+          &:not(:last-child) {
+            margin-right: 8px;
+
+            &::after {
+              content: "";
+              width: 24px;
+              height: 100%;
+              background-image: url("data:image/svg+xml,%0A%3Csvg viewBox='0 0 30 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M29.7071 8.70711C30.0976 8.31658 30.0976 7.68342 29.7071 7.29289L23.3431 0.928932C22.9526 0.538408 22.3195 0.538408 21.9289 0.928932C21.5384 1.31946 21.5384 1.95262 21.9289 2.34315L27.5858 8L21.9289 13.6569C21.5384 14.0474 21.5384 14.6805 21.9289 15.0711C22.3195 15.4616 22.9526 15.4616 23.3431 15.0711L29.7071 8.70711ZM0 9H29V7H0V9Z' fill='black'/%3E%3C/svg%3E%0A");
+              background-repeat: no-repeat;
+              width: 20px;
+              height: 10px;
+              margin-left: 8px;
+            }
+          }
+
+          &:last-child {
+            a {
+              pointer-events: none;
+              color: $color-grey-dark;
+            }
+          }
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px 16px;
+      margin-top: 24px;
+
+      @media (min-width: $breakpoint-tablet) {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 40px;
+      }
+    }
+
+    .entries {
+      h2 {
+        margin-top: 32px;
+        margin-bottom: 40px;
+      }
+
+      &-list {
+        list-style: none;
+        padding: 0;
+
+        li {
+          &:not(:last-child) {
+            margin-bottom: 40px;
+          }
+
+          > * {
+            &:not(:last-child):not(h3) {
+              margin-bottom: 16px;
+            }
+          }
+
+          h3 {
+            margin-bottom: 24px;
+          }
+        }
+      }
+    }
+  }
+}
