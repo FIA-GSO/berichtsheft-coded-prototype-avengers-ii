@@ -30,6 +30,22 @@ body {
   margin: 0;
 }
 
+.quick-access {
+  display: flex;
+
+  .visually-hidden {
+    &:not(:focus-visible) {
+      clip: rect(0 0 0 0);
+      clip-path: inset(50%);
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
+    }
+  }
+}
+
 dt {
   font-weight: $font-weight-bold;
 }

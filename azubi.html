@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- todo: adjust description -->
     <meta
       name="description"
       content="Melden Sie sich an, um Zugang zu Ihrem IHK-Konto zu erhalten und Ihre Ausbildungen, Prüfungen und Zertifikate zu verwalten."
@@ -30,6 +29,11 @@
     <title>IHK Köln - Auszubildende</title>
   </head>
   <body>
+    <div class="quick-access" aria-label="Schnellzugriff">
+      <a href="#skip-navigation" class="button button--primary visually-hidden"
+        >Navigation überspringen</a
+      >
+    </div>
     <header class="document-header">
       <div class="container">
         <a
@@ -129,7 +133,7 @@
         </div>
       </div>
     </header>
-    <main class="document document-azubi">
+    <main id="skip-navigation" class="document document-azubi">
       <div class="container azubi">
         <div class="profile">
           <div class="profile-pic">
@@ -142,6 +146,14 @@
           </div>
           <div class="profile-informations" aria-label="Auszubildende-Daten">
             <p><strong>Name:</strong> Max Mustermann</p>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:max@mustermann.de">max@mustermann.de</a>
+            </p>
+            <p>
+              <strong>Telefonnummer:</strong>
+              <a href="tel:2379587442">015758975111</a>
+            </p>
             <p><strong>Azubi-Nr:</strong> 12345</p>
             <p><strong>Beruf:</strong> Fachinformatiker</p>
             <p><strong>Betrieb:</strong> REWE</p>
@@ -149,6 +161,8 @@
             <p>
               <strong>Ausbildungszeitraum:</strong> 01.01.20222 - 01.07.2025
             </p>
+            <p><strong>Geburtsdatum:</strong> 02.05.2000</p>
+            <p><strong>Anschrift:</strong> Berliner Straße 20, 41444 Köln</p>
           </div>
         </div>
         <div class="app">
